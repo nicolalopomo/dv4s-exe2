@@ -1,28 +1,28 @@
 import streamlit as st
-import pandas as pd
 
-# Metrics
-st.title("Metric")
+page1 = st.Page('page1.py', title='Page 1')
+page2 = st.Page('page2.py', title='Page 2')
 
-st.metric(label="Nmber of Assists", value="25", delta="+6")
+pg = st.navigation([page1, page2])
+st.set_page_config(page_title="DV4S - Exe")
 
-st.metric(label="Goals", value="13", delta="-5")
+# Selectbox
+# Object-like
+st.sidebar.selectbox(
+    "Select your player",
+    ('Maradona', 'Pelè', 'Fonseca'),
+    key='Players'
+    )
+
+# with-like
+with st.sidebar:
+    rb = st.radio(
+        "Team",
+        ('Napoli', 'Milan', 'Roma'),
+        key='Team'
+    )
 
 
-# Dataframe
-st.title(":blue[Dataframe]")
 
-data = {
-    "Player's Name": ["Pelè", "Maradona", "Baggio"],
-    "Goals": [13, 25, 24],
-    "Team": ["Juve","Napoli","Inter"]
-}
 
-df = pd.DataFrame(data)
-
-st.subheader("Dataframe")
-st.dataframe(df) # display the dataframe
-
-st.subheader("Static Table")
-st.table(df)
 
