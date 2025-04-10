@@ -22,6 +22,8 @@ with st.sidebar:
         key='Team'
     )
 
+pg.run()
+
 
 
 
