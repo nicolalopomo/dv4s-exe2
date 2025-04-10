@@ -60,3 +60,18 @@ with st.expander("Data Viz", expanded=True):
 with st.expander("Table", expanded=False):
     st.subheader('My table')
     st.table(data)
+
+
+# Secrets
+st.title("Display some secrets")
+
+username = st.secrets["username"]
+st.write(username)
+
+import os
+
+password = os.environ["password"]
+st.write(password)
+
+secret_psw = st.secrets.further_secrets.secret_password
+st.write(secret_psw)
